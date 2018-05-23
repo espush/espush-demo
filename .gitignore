@@ -1,0 +1,8 @@
+.output
+*~
+bin
+*.o
+
+.cproject
+.project
+.settings
