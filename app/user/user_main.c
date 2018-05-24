@@ -101,7 +101,7 @@ void ICACHE_FLASH_ATTR user_init(void)
 	}
 
 	espush_init();
-	espush_set_server_ipaddr("espush.cn", 10001);
+	espush_set_server_domain("espush.cn", 10001);
 	espush_set_auth(YOUR_APPID, "YOUR DEVICE KEY");
 	espush_set_firmware("EX");
 	espush_set_autoreconnect(1);
