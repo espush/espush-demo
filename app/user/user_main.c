@@ -89,11 +89,6 @@ void textcb(const uint8* content, uint32 len)
 void ICACHE_FLASH_ATTR user_init(void)
 {
 	uart_init(BIT_RATE_115200, BIT_RATE_115200);
-	os_printf("\n\n\nVERSION 0.3\n\n;");
-	uint8 boot_ver = system_get_boot_version();
-	uint8 boot_mode = system_get_boot_mode();
-	uint32 user_addr = system_get_userbin_addr();
-
 	{
 		struct station_config config;
 		os_strcpy(config.ssid, "YOUR SSID");
@@ -105,20 +100,10 @@ void ICACHE_FLASH_ATTR user_init(void)
 		wifi_station_dhcpc_start();
 	}
 
-	os_printf("boot ver: [%d], boot mode: [%d]\nuser addr: [%X]\n", boot_ver, boot_mode, user_addr);
-	/*
-	void espush_init(uint32_t appid, uint8_t *devkey);
-	void espush_set_server_domain(const char* domain, uint16_t port);
-	void espush_set_server_ipaddr(const char* ipaddr, uint16_t port);
-	*/
 	espush_init();
-	/*
+	espush_set_server_ipaddr("espush.cn", 10001);
 	espush_set_auth(YOUR_APPID, "YOUR DEVICE KEY");
-	espush_set_server_ipaddr("192.168.2.105", 10081);
-	espush_set_text_cb(textcb);
-	espush_set_firmware("example");
+	espush_set_firmware("EX");
 	espush_set_autoreconnect(1);
 	espush_connect();
-	*/
 }
-
